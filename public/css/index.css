@@ -1,0 +1,93 @@
+body {
+  font-family: sans-serif;
+  background-color: whitesmoke;
+}
+
+.app-title {
+  text-align: center;
+  color: black;
+  text-shadow: #ccc -1px 0px 6px;
+  margin: 0;
+  margin: 1% 0% 0% 2%;
+}
+
+#book-shelf {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1% 2% 2% 2%;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: #ccc -1px 0px 6px;
+  padding-left: 1.5%;
+  padding-bottom: 1.5%;
+}
+
+.book {
+  width: 13%;
+  border: 1px solid;
+  margin: 1% 1% 0 0;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.book:hover .svg {
+  visibility: visible;
+}
+
+.book-name {
+  margin-bottom: 25%;
+  padding-top: 4%;
+  font-size: 20px;
+  padding-bottom: 3%;
+  margin-top: 18%;
+}
+
+.book-status {
+  margin-bottom: 10%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.options {
+  display: flex;
+  margin: 1% 2% 0 0;
+  width: 90%;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#search-bar {
+  padding-left: 0.6%;
+  width: 15%;
+  height: 55%;
+}
+
+.hide-display {
+  display: none;
+}
+
+.actions {
+  margin-left: 1%;
+}
+
+#username {
+  margin-left: 1%;
+}
+
+.svg {
+  width: 15%;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.book-options {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
