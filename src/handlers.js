@@ -5,14 +5,16 @@ const serveBooks = function(req, res) {
 const deleteBook = function(req, res) {
   const {id} = req.body;
   req.app.locals.books.delete(id);
+  db.set('libraryBooks', JSON.stringify(books));
   res.json(req.app.locals.books);
 }
 
 const addBook = function(req, res) {
   const {name} = req.body;
-  const {generateBookId, books} = req.app.locals;
+  const {generateBookId, books, db} = req.app.locals;
   const id = generateBookId();
   books.add(id, name);
+  db.set('libraryBooks', JSON.stringify(books));
   res.json(books);
 }
 
@@ -61,11 +63,13 @@ const loginUser = function(req, res) {
 
 const signupUser = function(req, res) {
   const {username, password} = req.body;
-  const {userCredentials, users, generateUserId} = req.app.locals;
+  const {userCredentials, users, generateUserId, db} = req.app.locals;
   if(userCredentials[username]) return res.json({err: 'Username already exists'});
   const id = generateUserId();
   userCredentials[username] = {id, password};
   users.add(id, username);
+  db.set('libraryUserCredentials', JSON.stringify(userCredentials));
+  db.set('libraryUsers', JSON.stringify(users));
   res.json({location: '/'});
 };
 

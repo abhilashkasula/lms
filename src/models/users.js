@@ -30,6 +30,10 @@ class Users {
     return user.return(bookId);
   }
 
+  toJSON() {
+    return this.users;
+  }
+
   static load(userList) {
     const users = new Users;
     userList.forEach(({id, name, books}) => users.add(id, name, books));

@@ -35,6 +35,7 @@ const loadUsers = function(err, data) {
 })();
 
 app.locals.sessions = {};
+app.locals.db = client;
 
 app.set('view engine', 'html');
 app.engine('html', view.renderFile);
