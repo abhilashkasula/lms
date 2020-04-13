@@ -5,7 +5,9 @@ const Books = require('./models/books');
 const {serveBooks} = require('./handlers');
 const app = express();
 
-app.locals.books = Books.load([{id: 1, name: 'Code'}]);
+const {books, generateBookId} = Books.load([{id: 1, name: 'Code'}]);
+app.locals.generateBookId = generateBookId;
+app.locals.books = books;
 
 app.use(express.static('public'));
 app.set('view engine', 'html');

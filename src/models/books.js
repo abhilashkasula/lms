@@ -1,5 +1,7 @@
 const Book = require('./book');
 
+const generateSeq = num => () => ++num;
+
 class Books {
   constructor() {
     this.books = [];
@@ -27,10 +29,15 @@ class Books {
     return this.books;
   }
 
+  generateNextId() {
+    return this.books[this.books.length - 1].id + 1;
+  }
+
   static load(bookList) {
     const books = new Books();
     bookList.forEach(book => books.add(book.id, book.name));
-    return books;
+    const generateBookId = generateSeq(bookList[bookList.length - 1].id);
+    return {books, generateBookId};
   }
 }
 

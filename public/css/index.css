@@ -59,7 +59,7 @@ body {
   align-items: center;
 }
 
-#search-bar {
+.text {
   padding-left: 0.6%;
   width: 15%;
   height: 55%;
@@ -90,4 +90,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.option {
+  margin-right: 2%;
+}
+
+.button {
+  font-size: 14px;
+  border-radius: 4px;
+  height: 69%;
+  background: linear-gradient(45deg, #5086d6, #418fdcf7);
+  color: white;
+  margin-left: 0.2%;
 }

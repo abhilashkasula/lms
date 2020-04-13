@@ -24,6 +24,22 @@ const deleteBook = function(id) {
     .then(res => res.json()).then(drawBooks);
 };
 
+const addBook = function() {
+  const name = document.querySelector("#new-book").value.trim();
+  if(!name) return;
+  fetch('admin/add', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({name})})
+    .then(res => res.json()).then(drawBooks);
+  name.value = '';
+};
+
+const clickButton = function(element, button) {
+  const value = element.value.trim();
+  if(!value) return;
+  if(event.keyCode === 13) {
+    document.querySelector(button).click();
+  }
+};
+
 const searchBooks = function() {
   const text = document.querySelector('#search-bar').value;
   const regex = new RegExp(text, 'i');
@@ -34,7 +50,11 @@ const searchBooks = function() {
 
 const addListeners = function() {
   const search = document.querySelector('#search-bar');
+  const bookButton = document.querySelector('#new-book-button');
+  const book = document.querySelector('#new-book');
   search.oninput = searchBooks;
+  bookButton.onclick = addBook;
+  book.onkeypress = () => clickButton(book, '#new-book-button');
 };
 
 const main = function() {
