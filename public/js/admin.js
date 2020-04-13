@@ -19,6 +19,11 @@ const drawBooks = function(books) {
   books.forEach(book => shelf.appendChild(generateBook(book)));
 };
 
+const deleteBook = function(id) {
+  fetch('admin/delete', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({id})})
+    .then(res => res.json()).then(drawBooks);
+}
+
 const main = function() {
   getBooks(drawBooks);
 };
