@@ -4,7 +4,7 @@ const view = require('ejs');
 const {admin} = require('./routers/admin');
 const {user} = require('./routers/user');
 const Books = require('./models/books');
-const {serveBooks, loginUser, findUser, authorize, signupUser} = require('./handlers');
+const {serveBooks, loginUser, findUser, authorize, signupUser, loginAdmin} = require('./handlers');
 const app = express();
 
 const {books, generateBookId} = Books.load([{id: 1, name: 'Code'}]);
@@ -12,6 +12,7 @@ app.locals.generateBookId = generateBookId;
 app.locals.books = books;
 app.locals.users = [{id: 1, name: 'abhi', books: []}];
 app.locals.userCredentials = {'abhi': {id: 1, password: 'abhi'}};
+app.locals.adminCredentials = {'abhilash': {id:1, password: 'abhilash'}};
 app.locals.sessions = {2: {id: 1, location: '/user'}};
 
 app.set('view engine', 'html');
@@ -26,6 +27,7 @@ app.use(express.json());
 app.use('/admin', admin);
 app.use('/user', user);
 app.post('/loginUser', loginUser);
+app.post('/loginAdmin', loginAdmin);
 app.post('/signupUser', signupUser);
 app.get('/books', serveBooks);
 
