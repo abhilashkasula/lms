@@ -12,7 +12,7 @@ app.locals.generateBookId = generateBookId;
 app.locals.books = books;
 app.locals.users = [{id: 1, name: 'abhi', books: []}];
 app.locals.userCredentials = {'abhi': {id: 1, password: 'abhi'}};
-app.locals.sessions = {1: {id: 1, location: '/user'}};
+app.locals.sessions = {2: {id: 1, location: '/user'}};
 
 app.set('view engine', 'html');
 app.engine('html', view.renderFile);

@@ -26,12 +26,23 @@ const findUser = function(req, res, next) {
 };
 
 const authorize = function(req, res, next) {
-  console.log(req.user);
   if(req.user && req.user.id && req.user.location) {
     return res.redirect(req.user.location);
   }
   next();
 };
+
+const authorizeUser = function(location) {
+  return (req, res, next) => {
+    if(req.user) {
+      if(req.user.location === location) {
+        return next();
+      }
+      return res.redirect(req.user.location);
+    }
+    res.render('notLogin.html');
+  }
+}
 
 const generateSeq = num => () => ++num;
 const generateSessionId = generateSeq(0);
@@ -48,4 +59,4 @@ const loginUser = function(req, res, next) {
   return res.json({err: 'Username or password is incorrect'});
 };
 
-module.exports = {serveBooks, deleteBook, addBook, loginUser, findUser, authorize};
+module.exports = {serveBooks, deleteBook, addBook, loginUser, findUser, authorize, authorizeUser};
