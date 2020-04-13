@@ -61,11 +61,11 @@ const loginUser = function(req, res) {
 
 const signupUser = function(req, res) {
   const {username, password} = req.body;
-  const {userCredentials, users} = req.app.locals;
+  const {userCredentials, users, generateUserId} = req.app.locals;
   if(userCredentials[username]) return res.json({err: 'Username already exists'});
-  const id = ++users[users.length - 1].id;
+  const id = generateUserId();
   userCredentials[username] = {id, password};
-  users.push({id, name: username, books:[]});
+  users.add(id, username);
   res.json({location: '/'});
 };
 

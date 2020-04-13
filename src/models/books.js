@@ -7,8 +7,8 @@ class Books {
     this.books = [];
   }
 
-  add(id, name) {
-    return this.books.push(new Book(id, name));
+  add(id, name, isAvailable) {
+    return this.books.push(new Book(id, name, isAvailable));
   }
 
   delete(id) {
@@ -35,7 +35,7 @@ class Books {
 
   static load(bookList) {
     const books = new Books();
-    bookList.forEach(book => books.add(book.id, book.name));
+    bookList.forEach(book => books.add(book.id, book.name, book.isAvailable));
     const generateBookId = generateSeq(bookList[bookList.length - 1].id);
     return {books, generateBookId};
   }

@@ -4,13 +4,16 @@ const view = require('ejs');
 const {admin} = require('./routers/admin');
 const {user} = require('./routers/user');
 const Books = require('./models/books');
+const Users = require('./models/users');
 const {serveBooks, loginUser, findUser, authorize, signupUser, loginAdmin} = require('./handlers');
 const app = express();
 
 const {books, generateBookId} = Books.load([{id: 1, name: 'Code'}]);
+const {users, generateUserId} = Users.load([{id: 1, name: 'abhi', books: []}]);
 app.locals.generateBookId = generateBookId;
+app.locals.generateUserId = generateUserId;
 app.locals.books = books;
-app.locals.users = [{id: 1, name: 'abhi', books: []}];
+app.locals.users = users;
 app.locals.userCredentials = {'abhi': {id: 1, password: 'abhi'}};
 app.locals.adminCredentials = {'abhilash': {id:1, password: 'abhilash'}};
 app.locals.sessions = {2: {id: 1, location: '/user'}};

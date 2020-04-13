@@ -1,8 +1,8 @@
 class Book {
-  constructor(id, name) {
+  constructor(id, name, isAvailable = true) {
     this.id = id;
     this.name = name;
-    this.isAvailable = true;
+    this.isAvailable = isAvailable;
   }
 
   toggleAvailability() {
