@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS</title>
+  <link rel="stylesheet" href="css/login.css" />
+  <script src="js/user_login.js"></script>
+</head>
+<body>
+  <div class="container" id="login-container">
+    <div class="box">
+      <p class="header">Login</p>
+      <div class="textbox-container">
+        <label>Username: </label>
+        <input type="text" id="login-username" class="textbox">
+      </div>
+      <div class="textbox-container">
+        <label>Password:&nbsp;</label>
+        <input type="text" id="login-password" class="textbox">
+      </div>
+      <button class="button action-button" id="login">Login</button>
+      <button class="button"  onclick="show('signup-container', 'login-container')">
+        Sign up
+      </button>
+      <a href="admin-login">Login as Admin</a>
+    </div>
+  </div>
+  <div class="container hidden" id="signup-container">
+    <div class="box">
+      <p class="header">Sign Up</p>
+      <div class="textbox-container">
+        <label>Username: </label>
+        <input type="text" id="signup-username" class="textbox">
+      </div>
+      <div class="textbox-container">
+        <label>Password:&nbsp;</label>
+        <input type="text" id="signup-password" class="textbox">
+      </div>
+      <button class="button action-button" id="signup">Sign up</button>
+      <button class="button" onclick="show('login-container', 'signup-container')">
+        Login
+      </button>
+      <a href="admin-login">Login as Admin</a>
+    </div>
+  </div>
+</body>
+</html>%
