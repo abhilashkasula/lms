@@ -46,8 +46,7 @@ const authorizeUser = function(location) {
   }
 }
 
-const generateSeq = num => () => ++num;
-const generateSessionId = generateSeq(0);
+const generateSessionId = () => new Date().getTime() + 10;
 
 const loginUser = function(req, res) {
   const {username, password} = req.body;
