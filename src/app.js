@@ -4,7 +4,7 @@ const view = require('ejs');
 const {admin} = require('./routers/admin');
 const {user} = require('./routers/user');
 const Books = require('./models/books');
-const {serveBooks, loginUser, findUser, authorize} = require('./handlers');
+const {serveBooks, loginUser, findUser, authorize, signupUser} = require('./handlers');
 const app = express();
 
 const {books, generateBookId} = Books.load([{id: 1, name: 'Code'}]);
@@ -26,6 +26,7 @@ app.use(express.json());
 app.use('/admin', admin);
 app.use('/user', user);
 app.post('/loginUser', loginUser);
+app.post('/signupUser', signupUser);
 app.get('/books', serveBooks);
 
 module.exports = {app};

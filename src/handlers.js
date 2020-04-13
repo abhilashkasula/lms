@@ -47,7 +47,7 @@ const authorizeUser = function(location) {
 const generateSeq = num => () => ++num;
 const generateSessionId = generateSeq(0);
 
-const loginUser = function(req, res, next) {
+const loginUser = function(req, res) {
   const {username, password} = req.body;
   const {sessions, userCredentials} = req.app.locals;
   const user = userCredentials[username];
@@ -59,4 +59,14 @@ const loginUser = function(req, res, next) {
   return res.json({err: 'Username or password is incorrect'});
 };
 
-module.exports = {serveBooks, deleteBook, addBook, loginUser, findUser, authorize, authorizeUser};
+const signupUser = function(req, res) {
+  const {username, password} = req.body;
+  const {userCredentials, users} = req.app.locals;
+  if(userCredentials[username]) return res.json({err: 'Username already exists'});
+  const id = ++users[users.length - 1].id;
+  userCredentials[username] = {id, password};
+  users.push({id, name: username, books:[]});
+  res.json({location: '/'});
+};
+
+module.exports = {serveBooks, deleteBook, addBook, loginUser, findUser, authorize, authorizeUser, signupUser};
