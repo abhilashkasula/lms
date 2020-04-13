@@ -1,22 +1,40 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const redis = require('redis');
 const view = require('ejs');
 const {admin} = require('./routers/admin');
 const {user} = require('./routers/user');
 const Books = require('./models/books');
 const Users = require('./models/users');
 const {serveBooks, loginUser, findUser, authorize, signupUser, loginAdmin} = require('./handlers');
-const app = express();
 
-const {books, generateBookId} = Books.load([{id: 1, name: 'Code'}]);
-const {users, generateUserId} = Users.load([{id: 1, name: 'abhi', books: []}]);
-app.locals.generateBookId = generateBookId;
-app.locals.generateUserId = generateUserId;
-app.locals.books = books;
-app.locals.users = users;
-app.locals.userCredentials = {'abhi': {id: 1, password: 'abhi'}};
-app.locals.adminCredentials = {'abhilash': {id:1, password: 'abhilash'}};
-app.locals.sessions = {2: {id: 1, location: '/user'}};
+const app = express();
+const client = redis.createClient(process.env.REDIS_URL || 'redis://localhost/');
+
+const loadBooks = function(err, data) {
+  const {books, generateBookId} = Books.load(JSON.parse(data) || []);
+  app.locals.generateBookId = generateBookId;
+  app.locals.books = books;
+};
+
+const loadUsers = function(err, data) {
+  const {users, generateUserId} = Users.load(JSON.parse(data) || []);
+  app.locals.generateUserId = generateUserId;
+  app.locals.users = users;
+};
+
+(() => {
+  client.get('libraryBooks', loadBooks);
+  client.get('libraryUsers', loadUsers);
+  client.get('libraryUserCredentials', (err, data) => {
+    app.locals.userCredentials = JSON.parse(data) || {};
+  });
+  client.get('libraryAdminCredentials', (err, data) => {
+    app.locals.adminCredentials = JSON.parse(data) || {};
+  });
+})();
+
+app.locals.sessions = {};
 
 app.set('view engine', 'html');
 app.engine('html', view.renderFile);

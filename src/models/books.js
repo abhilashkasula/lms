@@ -36,7 +36,8 @@ class Books {
   static load(bookList) {
     const books = new Books();
     bookList.forEach(book => books.add(book.id, book.name, book.isAvailable));
-    const generateBookId = generateSeq(bookList[bookList.length - 1].id);
+    const length = bookList.length && bookList[bookList.length - 1].id
+    const generateBookId = generateSeq(length);
     return {books, generateBookId};
   }
 }

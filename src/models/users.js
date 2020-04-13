@@ -33,7 +33,8 @@ class Users {
   static load(userList) {
     const users = new Users;
     userList.forEach(({id, name, books}) => users.add(id, name, books));
-    const generateUserId = generateSeq(userList[userList.length - 1].id);
+    const length = userList.length && userList[userList.length - 1].id
+    const generateUserId = generateSeq(length);
     return {users, generateUserId};
   }
 }
