@@ -1,6 +1,6 @@
 const getBooks = function(callback) {
   fetch('books').then(res => res.json()).then(callback);
-}
+};
 
 const generateBook = function({id, name, isAvailable}) {
   const bookContainer = document.createElement('div');
@@ -11,7 +11,7 @@ const generateBook = function({id, name, isAvailable}) {
     <div class="book-status">${isAvailable}</div>`
   bookContainer.innerHTML = html;
   return bookContainer;
-}
+};
 
 const drawBooks = function(books) {
   const shelf = document.querySelector('#book-shelf');
@@ -22,10 +22,24 @@ const drawBooks = function(books) {
 const deleteBook = function(id) {
   fetch('admin/delete', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({id})})
     .then(res => res.json()).then(drawBooks);
-}
+};
+
+const searchBooks = function() {
+  const text = document.querySelector('#search-bar').value;
+  const regex = new RegExp(text, 'i');
+  const books = Array.from(document.querySelectorAll('.book'));
+  books.forEach(book => book.classList.add('hide-display'));
+  books.forEach(book => book.children[1].innerHTML.match(regex) && book.classList.remove('hide-display'));
+};
+
+const addListeners = function() {
+  const search = document.querySelector('#search-bar');
+  search.oninput = searchBooks;
+};
 
 const main = function() {
   getBooks(drawBooks);
+  addListeners();
 };
 
 window.onload = main;
