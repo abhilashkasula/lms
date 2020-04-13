@@ -6,12 +6,10 @@ const show = function(show, hide) {
 }
 
 const redirect = function({err, location}) {
-  console.log(err, location)
   if(!err) return window.location.replace(location);
 }
 
 const login = function() {
-  console.log('login');
   const username = document.querySelector('#login-username').value.trim();
   const password = document.querySelector('#login-password').value.trim();
   if(!username || !password) return;
@@ -21,7 +19,6 @@ const login = function() {
 }
 
 const signup = function() {
-  console.log('sign');
   const username = document.querySelector('#signup-username').value.trim();
   const password = document.querySelector('#signup-password').value.trim();
   if(!username || !password) return;

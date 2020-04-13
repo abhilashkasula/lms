@@ -75,7 +75,6 @@ const signupUser = function(req, res) {
 const loginAdmin = function(req, res) {
   const {username, password} = req.body;
   const {adminCredentials, sessions} = req.app.locals;
-  console.log(adminCredentials, '\n\n\n');
   const admin = adminCredentials[username];
   if(admin && admin.password === password) {
     const session = generateSessionId();

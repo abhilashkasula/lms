@@ -1,5 +1,4 @@
 const redirect = function({err, location}) {
-  console.log(err, location)
   if(!err) return window.location.replace(location);
 }
 

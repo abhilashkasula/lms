@@ -18,7 +18,6 @@ const generateBook = function(book) {
 };
 
 const drawBooks = function(books) {
-  console.log(books)
   const shelf = document.querySelector('#book-shelf');
   books.forEach(book => shelf.appendChild(generateBook(book)));
 };
