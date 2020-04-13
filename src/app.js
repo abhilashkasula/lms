@@ -1,6 +1,7 @@
 const express = require('express');
 const view = require('ejs');
 const {admin} = require('./routers/admin');
+const {user} = require('./routers/user');
 const Books = require('./models/books');
 const {serveBooks} = require('./handlers');
 const app = express();
@@ -14,7 +15,7 @@ app.set('view engine', 'html');
 app.engine('html', view.renderFile);
 app.use(express.json());
 app.use('/admin', admin);
+app.use('/user', user);
 app.get('/books', serveBooks);
-// app.use(user);
 
 module.exports = {app};
