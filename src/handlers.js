@@ -4,9 +4,10 @@ const serveBooks = function(req, res) {
 
 const deleteBook = function(req, res) {
   const {id} = req.body;
-  req.app.locals.books.delete(id);
+  const {books, db} = req.app.locals;
+  books.delete(id);
   db.set('libraryBooks', JSON.stringify(books));
-  res.json(req.app.locals.books);
+  res.json(books);
 }
 
 const addBook = function(req, res) {

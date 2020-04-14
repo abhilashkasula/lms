@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
-  <link rel="stylesheet" href="css/index.css">
-  <script src="js/admin.js"></script>
-</head>
-<body>
-  <div class="header">
-    <h1 class="app-title">LMS</h1>
-    <div class="options">
-      <input type="text" id="new-book" class="text" placeholder="Add a book..">
-      <button class="option button" id="new-book-button">Add</button>
-      <input type="text" id="search-bar" class="text" placeholder="Search your book here..">
-      <div class="actions">noti &nbsp chat</div>
-      <div id="username">user</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/admin.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <h1 class="app-title">LMS</h1>
+      <div class="options">
+        <input
+          type="text"
+          id="new-book"
+          class="text"
+          placeholder="Add a book.."
+        />
+        <button class="option button" id="new-book-button">Add</button>
+        <input
+          type="text"
+          id="search-bar"
+          class="text"
+          placeholder="Search your book here.."
+        />
+        <div class="actions">noti &nbsp chat</div>
+        <div class="username">
+          <span id="username"></span>
+          <input type="hidden" id="user-id" value="" />
+          <div class="username-dropdown" id="logout">Logout</div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div id="book-shelf"></div>
-</body>
+    <div class="container">
+      <div class="navbar"></div>
+      <div class="book-shelf">
+        <div class="shelf-header">
+          Library Book Shelf
+          <br />
+          <span class="description">All available Books</span>
+        </div>
+        <div id="book-shelf" class="shelf"></div>
+      </div>
+    </div>
+  </body>
 </html>

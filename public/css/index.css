@@ -12,12 +12,13 @@ body {
 }
 
 .book-shelf {
-  margin: 1% 2% 2% 2%;
+  margin: 1% 1% 2% 0.8%;
   background-color: white;
   border-radius: 4px;
   box-shadow: #ccc -1px 0px 6px;
   padding-left: 1.5%;
   padding-bottom: 1.5%;
+  width: 100%;
 }
 
 .empty {
@@ -159,4 +160,18 @@ body {
 
 .username:hover .username-dropdown {
   display: block;
+}
+
+.container {
+  display: flex;
+}
+
+.navbar {
+  margin: 1% 0% 2% 1%;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: #ccc -1px 0px 6px;
+  padding-left: 1.5%;
+  padding-bottom: 1.5%;
+  width: 1%;
 }
