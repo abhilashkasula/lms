@@ -52,9 +52,11 @@ const addListeners = function() {
   const search = document.querySelector('#search-bar');
   const bookButton = document.querySelector('#new-book-button');
   const book = document.querySelector('#new-book');
+  const usersButton = document.querySelector('#users');
   search.oninput = searchBooks;
   bookButton.onclick = addBook;
   book.onkeypress = () => clickButton(book, '#new-book-button');
+  usersButton.onclick = () => window.location.assign('/admin/users');
 };
 
 const main = function() {

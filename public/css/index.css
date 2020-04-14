@@ -167,11 +167,22 @@ body {
 }
 
 .navbar {
+  display: flex;
+  flex-direction: column;
   margin: 1% 0% 2% 1%;
   background-color: white;
   border-radius: 4px;
   box-shadow: #ccc -1px 0px 6px;
-  padding-left: 1.5%;
-  padding-bottom: 1.5%;
-  width: 1%;
+  max-width: 3%;
+  overflow: hidden;
+}
+
+img {
+  width:70%;
+}
+
+.img-div {
+  margin-top: 20%;
+  display: flex;
+  justify-content: center;;
 }
