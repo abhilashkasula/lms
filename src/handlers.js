@@ -46,6 +46,11 @@ const authorizeUser = function(location) {
   }
 }
 
+const serveUserStatus = function(req, res) {
+  const userInfo = req.app.locals.users.getUserInfo(req.user.id);
+  res.json(userInfo);
+};
+
 const generateSessionId = () => new Date().getTime() + 10;
 
 const loginUser = function(req, res) {
@@ -84,4 +89,4 @@ const loginAdmin = function(req, res) {
   res.json({err: 'Username or password is incorrect'});
 }
 
-module.exports = {serveBooks, deleteBook, addBook, loginUser, findUser, authorize, authorizeUser, signupUser, loginAdmin};
+module.exports = {serveBooks, deleteBook, addBook, loginUser, findUser, authorize, authorizeUser, signupUser, loginAdmin, serveUserStatus};

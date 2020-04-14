@@ -2,6 +2,10 @@ const getBooks = function(callback) {
   fetch('books').then(res => res.json()).then(callback);
 }
 
+const getUserInfo = function(callback) {
+  fetch('/user/status').then(res => res.json()).then(callback);
+}
+
 const generateBook = function(book) {
   const bookContainer = document.createElement('div');
   const name = document.createElement('div');
@@ -15,6 +19,16 @@ const generateBook = function(book) {
   bookContainer.appendChild(name);
   bookContainer.appendChild(status);
   return bookContainer;
+};
+
+const drawUserInfo = function({name, books}) {
+  const shelf = document.querySelector('#borrowed-books');
+  const booksHtml = books.map(book => generateBook(book));
+  if(booksHtml > 0) {
+    return booksHtml.forEach(book => shelf.appendChild(book));
+  }
+  shelf.className = 'empty';
+  shelf.innerText = 'No books';
 };
 
 const drawBooks = function(books) {
@@ -42,6 +56,7 @@ const addListeners = function() {
 
 const main = function() {
   getBooks(drawBooks);
+  getUserInfo(drawUserInfo);
   addListeners();
 };
 window.onload = main;

@@ -25,6 +25,11 @@ class Users {
     return user.assign(bookId, bookName);
   }
 
+  getUserInfo(id) {
+    const user = this.findUser(id);
+    return user.getStatus();
+  }
+
   returnBook(userId, bookId) {
     const user = this.findUser(userId);
     return user.return(bookId);

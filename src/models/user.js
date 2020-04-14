@@ -12,6 +12,10 @@ class User {
     const bookPosition = this.books.findIndex(book => book.id === bookId);
     return this.books.splice(bookPosition, 1);
   }
+
+  getStatus() {
+    return {name: this.name, books: this.books.slice()};
+  }
 }
 
 module.exports = User;
