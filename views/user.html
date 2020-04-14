@@ -11,11 +11,16 @@
     <div class="header">
       <h1 class="app-title">LMS</h1>
       <div class="options">
-        <input type="text" id="search-bar" class="text" placeholder="Search your book here..">
+        <input
+          type="text"
+          id="search-bar"
+          class="text"
+          placeholder="Search your book here.."
+        />
         <div class="actions">noti &nbsp chat</div>
         <div class="username">
           <span id="username"></span>
-          <input type="hidden" id="user-id" value="">
+          <input type="hidden" id="user-id" value="" />
           <div class="username-dropdown" id="logout">Logout</div>
         </div>
       </div>
@@ -26,13 +31,16 @@
       </div>
       <div id="borrowed-books" class="shelf"></div>
     </div>
-    <div class="book-shelf">
-      <div class="shelf-header">
-        Library Book Shelf
-        <br>
-        <span class="description">All available Books</span>
+    <div class="container">
+      <div></div>
+      <div class="book-shelf">
+        <div class="shelf-header">
+          Library Book Shelf
+          <br />
+          <span class="description">All available Books</span>
+        </div>
+        <div id="book-shelf" class="shelf"></div>
       </div>
-      <div id="book-shelf" class="shelf"></div>
     </div>
   </body>
 </html>
