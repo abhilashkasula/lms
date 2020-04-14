@@ -139,7 +139,7 @@ body {
 }
 
 #username {
-  background-color: #ccc;
+  background-color: rgba(50, 50, 50, 1);
   color: white;
   border-radius: 4px;
   padding: 0.5%;
