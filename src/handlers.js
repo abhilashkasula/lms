@@ -52,6 +52,10 @@ const serveUserStatus = function(req, res) {
   res.json(userInfo);
 };
 
+const serveUsers = function(req, res) {
+  res.json(req.app.locals.users);
+}
+
 const generateSessionId = () => new Date().getTime() + 10;
 
 const loginUser = function(req, res) {
@@ -99,4 +103,4 @@ const logoutUser = function(req, res) {
   res.cookie('session', '').json({location: '/'});
 };
 
-module.exports = {serveBooks, deleteBook, addBook, loginUser, findUser, authorize, authorizeUser, signupUser, loginAdmin, serveUserStatus, logoutUser};
+module.exports = {serveBooks, deleteBook, addBook, loginUser, findUser, authorize, authorizeUser, signupUser, loginAdmin, serveUserStatus, logoutUser, serveUsers};

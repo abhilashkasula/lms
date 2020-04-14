@@ -184,5 +184,40 @@ img {
 .img-div {
   margin-top: 20%;
   display: flex;
-  justify-content: center;;
+}
+
+.users-shelf {
+  margin: 1% 0.8% 2% 0.8%;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: #ccc -1px 0px 6px;
+  display: flex;
+}
+
+.user {
+  font-size: large;
+  padding: 4%;
+  box-shadow: 1px 1px 1px #ccc;
+}
+
+.users {
+  width: 30%;
+  border-right: 1px solid;
+  cursor: pointer;
+}
+
+.user-info {
+  width: 100%;
+  padding: 1%;
+}
+
+.users-header {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.borrowed-header {
+  text-align: center;
+  font-weight: 600;
 }

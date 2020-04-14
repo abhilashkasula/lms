@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS</title>
+  <link rel="stylesheet" href="/css/index.css" />
+  <script src="/js/users.js"></script>
+</head>
+<body>
+  <div class="header">
+    <h1 class="app-title">LMS</h1>
+    <div class="options">
+      <input
+        type="text"
+        id="search-bar"
+        class="text"
+        placeholder="Search a student or book here.."
+      />
+      <div class="actions">noti &nbsp chat</div>
+      <div class="username">
+        <span id="username"></span>
+        <input type="hidden" id="user-id" value="" />
+        <div class="username-dropdown" id="logout">Logout</div>
+      </div>
+    </div>
+  </div>
+  <div class="users-header">Library Users</div>
+  <div class="users-shelf">
+    <div class="users" id="users"></div>
+    <div class="user-info" id="user-tab">
+      <div class="borrowed-header">Books Borrowed</div>
+    </div>
+  </div>
+</body>
+</html>
