@@ -11,15 +11,27 @@ body {
   margin: 1% 0% 0% 2%;
 }
 
-#book-shelf {
-  display: flex;
-  flex-wrap: wrap;
+.book-shelf {
   margin: 1% 2% 2% 2%;
   background-color: white;
   border-radius: 4px;
   box-shadow: #ccc -1px 0px 6px;
   padding-left: 1.5%;
   padding-bottom: 1.5%;
+}
+
+.empty {
+  display: block;
+  text-align: center;
+  font-size: large;
+  font-weight: 600;
+  margin-top: 3%;
+  opacity: 0.2;
+}
+
+.shelf {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .book {
@@ -103,4 +115,25 @@ body {
   background: linear-gradient(45deg, #5086d6, #418fdcf7);
   color: white;
   margin-left: 0.2%;
+}
+
+.borrowed-books {
+  margin: 1% 2% 1% 2%;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: #ccc -1px 0px 6px;
+  padding-left: 1.5%;
+  padding-bottom: 1.5%;
+}
+
+.shelf-header {
+  text-align: center;
+  padding-top: 1%;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.description {
+  font-weight: 100;
+  font-size: 15px;
 }

@@ -19,7 +19,12 @@ const generateBook = function(book) {
 
 const drawBooks = function(books) {
   const shelf = document.querySelector('#book-shelf');
-  books.forEach(book => shelf.appendChild(generateBook(book)));
+  const booksHtml = books.map(book => generateBook(book));
+  if(booksHtml.length > 0) {
+    return booksHtml.forEach(book => shelf.appendChild(book));
+  }
+  shelf.className = 'empty';
+  shelf.innerText = 'No books';
 };
 
 const searchBooks = function() {
