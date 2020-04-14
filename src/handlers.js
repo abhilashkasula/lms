@@ -89,4 +89,13 @@ const loginAdmin = function(req, res) {
   res.json({err: 'Username or password is incorrect'});
 }
 
-module.exports = {serveBooks, deleteBook, addBook, loginUser, findUser, authorize, authorizeUser, signupUser, loginAdmin, serveUserStatus};
+const logoutUser = function(req, res) {
+  const {id} = req.body;
+  const {sessions} = req.app.locals;
+  const {session} = req.cookies;
+  if(sessions[session].id !== +id) return res.json({err: 'Something went wrong'});
+  delete(sessions[session]);
+  res.cookie('session', '').json({location: '/'});
+};
+
+module.exports = {serveBooks, deleteBook, addBook, loginUser, findUser, authorize, authorizeUser, signupUser, loginAdmin, serveUserStatus, logoutUser};

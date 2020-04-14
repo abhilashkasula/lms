@@ -21,8 +21,9 @@ const generateBook = function(book) {
   return bookContainer;
 };
 
-const drawUserInfo = function({name, books}) {
+const drawUserInfo = function({id, name, books}) {
   document.querySelector('#username').innerText = name;
+  document.querySelector('#user-id').value = id;
   const shelf = document.querySelector('#borrowed-books');
   const booksHtml = books.map(book => generateBook(book));
   if(booksHtml > 0) {
@@ -50,9 +51,22 @@ const searchBooks = function() {
   books.forEach(book => book.children[0].innerText.match(regex) && book.classList.remove('hide-display'));
 }
 
+const redirect = function({err, location}) {
+  if(!err) return window.location.replace(location);
+};
+
+const logout = function() {
+  const id = document.querySelector("#user-id").value;
+  console.log(id);
+  fetch('user/logout', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({id})})
+    .then(res => res.json()).then(redirect);
+};
+
 const addListeners = function() {
   const search = document.querySelector('#search-bar');
   search.oninput = searchBooks;
+  const button = document.querySelector('#logout');
+  button.onclick = logout;
 }
 
 const main = function() {

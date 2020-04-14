@@ -14,7 +14,7 @@ class User {
   }
 
   getStatus() {
-    return {name: this.name, books: this.books.slice()};
+    return {id: this.id, name: this.name, books: this.books.slice()};
   }
 }
 

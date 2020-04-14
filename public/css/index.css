@@ -85,10 +85,6 @@ body {
   margin-left: 1%;
 }
 
-#username {
-  margin-left: 1%;
-}
-
 .svg {
   width: 15%;
 }
@@ -138,9 +134,29 @@ body {
   font-size: 15px;
 }
 
-#username {
+.username {
   background-color: rgba(50, 50, 50, 1);
   color: white;
   border-radius: 4px;
   padding: 0.5%;
+  cursor: pointer;
+  margin-left: 1%;
+}
+
+.username-dropdown {
+  display: none;
+  position: absolute;
+  background-color: rgb(241, 40, 40);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 0.5%;
+  transform: translate(-30%);
+  border-radius: 3px;
+  cursor: pointer;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.username:hover .username-dropdown {
+  display: block;
 }
