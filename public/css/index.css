@@ -137,3 +137,10 @@ body {
   font-weight: 100;
   font-size: 15px;
 }
+
+#username {
+  background-color: #ccc;
+  color: white;
+  border-radius: 4px;
+  padding: 0.5%;
+}

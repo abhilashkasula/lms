@@ -22,6 +22,7 @@ const generateBook = function(book) {
 };
 
 const drawUserInfo = function({name, books}) {
+  document.querySelector('#username').innerText = name;
   const shelf = document.querySelector('#borrowed-books');
   const booksHtml = books.map(book => generateBook(book));
   if(booksHtml > 0) {
