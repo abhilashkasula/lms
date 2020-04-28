@@ -184,6 +184,8 @@ img {
 .img-div {
   margin-top: 20%;
   display: flex;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .users-shelf {
